@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 
@@ -13,19 +14,28 @@ int* diziOlusturVeDegerAta(int elemanSayisi){
     return dizi;
     
 }
+ void diziYazdir(int* dizi, int boyut){
 
+ for (int i = 0; i < boyut; i++)
+    {
+        std::cout<<"dizi["<<i<<"]:"<<*(dizi+i)<<std::endl;
+    }
+    
+
+ }
 
 int main(){
 
 
     int* p= diziOlusturVeDegerAta(10);
+    diziYazdir(p,10);
+
+    delete p;
+
+    
 
 
 
-    for (int i = 0; i < 10; i++)
-    {
-        std::cout<<"p+"<<i<<": "<<*(p+i)<<std::endl;
-    }
     
 
 
