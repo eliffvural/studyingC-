@@ -21,16 +21,31 @@ int main(){
      Dugum* d4= new Dugum(03);
      Dugum *d5= new Dugum(21);
 
-     d1->sonraki=d2;
+     //d1->sonraki=d2;
 
-     std::cout<<"d1->sonraki: (d2nin adresi:) "<<d1->sonraki<<std::endl; //d2 nin adresine erisim sagladik.
+     //std::cout<<"d1->sonraki: (d2nin adresi:) "<<d1->sonraki<<std::endl; //d2 nin adresine erisim sagladik.
 
 
-     d2->sonraki=d3;
+     //d2->sonraki=d3;
 
-     std::cout<<"d1->sonraki->sonraki: (d3ün adresi:) "<<d1->sonraki->sonraki<<std::endl;
+     //std::cout<<"d1->sonraki->sonraki: (d3ün adresi:) "<<d1->sonraki->sonraki<<std::endl;
 
      //sadece d1 uzerinden ulasabiliriz:
-     d1->sonraki->sonraki=d3; //d3 un adresine erişmiş olduk.
+     //d1->sonraki->sonraki=d3; //d3 un adresine erişmiş olduk. 
+
+     //listeyi dongu ile gezme:
+
+
+    //yeni bir eleman ekleyecegiz:
+     Dugum* yeni= new Dugum(1912);
+
+     Dugum* gec=d1;
+     while (gec->sonraki!=0){
+        gec=gec->sonraki;
+     }
+
+    //en son degerin yeni degeri gostermesini istiyorum:
+    gec->sonraki= yeni;
+    std::cout<<gec->sonraki<<std::endl; //gec en son dugumu gostermekte
 
 }
