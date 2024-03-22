@@ -76,6 +76,30 @@ public:
         delete gec->sonraki; //son dugumu silme islemini yaptik
         gec->sonraki=0; //aradaki bagi da silmis oluyoruz bu sekilde
 
+    }
+
+    void cikar(int sira){
+        // bu fonksiyon sirasini verdigimiz dugumu listeden cikartiyor
+
+        DDugum* sil= dugumGetir(sira);
+
+        if(sil==0) return; //dugum yoksa fonksiyon direkt biter
+
+        DDugum* onceki= sil->onceki;
+        DDugum* sonraki= sil->sonraki;
+
+        delete sil;
+
+        if(sonraki)
+           sonraki->onceki=onceki;
+
+           if(onceki)
+             onceki->sonraki=sonraki;
+
+             else
+                ilk=sonraki; //yani benim ilk dugumum en sondaki yani sonraki olarak atadigimiz dugum oldu
+
+                //eger silinecek dugumden onceki yoksa bu dugum ilk dugumdur.
 
 
 
@@ -84,7 +108,33 @@ public:
 
     }
 
+    
+
 private:
+
+DDugum* dugumGetir(int sira){
+        //istedigim siradaki dugumun adresini getiriyor
+        //bu alani kullaniciya acmamamiz gerekiyor o nedenle private alaninda yer aliyor
+
+        int sayac=0;
+
+        DDugum* gec=ilk;
+
+        while(gec!=0){
+            if(sayac==sira){
+                return gec;
+
+            }
+            gec=gec->sonraki;
+
+            sayac++;
+
+
+        }
+        return 0;
+
+        
+    }
 
 DDugum* ilk;
 
