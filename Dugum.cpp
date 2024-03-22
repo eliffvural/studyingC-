@@ -101,11 +101,34 @@ public:
 
                 //eger silinecek dugumden onceki yoksa bu dugum ilk dugumdur.
 
+    }
 
+    void ekle(int sira, int veri){
 
+        //istenilen siraya, istedigimiz veriyi ekleme fonksiyonu
 
+        if(ilk==0 && sira==0){
+            ilk= new DDugum(veri);
+        }
 
+        DDugum* dug= new dugumGetir(sira);
 
+        if(dug==0) return;
+
+        DDugum* yeni= new DDugum(veri);
+
+        DDugum* onceki= dug->onceki;
+
+        dug->onceki=yeni;
+        yeni->sonraki=dug;
+        yeni->onceki=onceki;
+
+        if(onceki){
+            onceki->sonraki=yeni;
+        }
+        else{
+            ilk=yeni;
+        }
     }
 
     
