@@ -4,6 +4,7 @@ using namespace std;
 class DDugum{
 
     public:
+
     DDugum(int veri){
         this->veri=veri;
         sonraki=onceki=0; //iki isaretci de kurucu da sifir degerini almalidir.
@@ -78,6 +79,33 @@ public:
 
     }
 
+
+
+     void dugumGetir(int sira){
+        //istedigim siradaki dugumun adresini getiriyor
+        //bu alani kullaniciya acmamamiz gerekiyor o nedenle private alaninda yer aliyor
+
+        int sayac=0;
+
+        DDugum* gec=ilk;
+
+        while(gec!=0){
+            if(sayac==sira){
+                return gec;
+
+            }
+            gec=gec->sonraki;
+
+            sayac++;
+
+
+        }
+        return 0;
+
+        
+    }
+
+
     void cikar(int sira){
         // bu fonksiyon sirasini verdigimiz dugumu listeden cikartiyor
 
@@ -103,6 +131,7 @@ public:
 
     }
 
+       
     void ekle(int sira, int veri){
 
         //istenilen siraya, istedigimiz veriyi ekleme fonksiyonu
@@ -129,39 +158,12 @@ public:
         else{
             ilk=yeni;
         }
+
+        std::cout<<"yeni dugum eklendi."<<ekle(9)<<std::endl
     }
 
     
 
-private:
-
-DDugum* dugumGetir(int sira){
-        //istedigim siradaki dugumun adresini getiriyor
-        //bu alani kullaniciya acmamamiz gerekiyor o nedenle private alaninda yer aliyor
-
-        int sayac=0;
-
-        DDugum* gec=ilk;
-
-        while(gec!=0){
-            if(sayac==sira){
-                return gec;
-
-            }
-            gec=gec->sonraki;
-
-            sayac++;
-
-
-        }
-        return 0;
-
-        
-    }
-
-DDugum* ilk;
-
-};
 
 
 
@@ -169,12 +171,12 @@ DDugum* ilk;
 int main(){
     //uc tane dugum olusturup uc tane pointer ile de dugumleri tutuyoruz.
 
-    DDugum* d1= new DDugum(19);
-    DDugum* d2= new DDugum(12);
-    DDugum* d3= new DDugum(03);
 
-    d1->sonraki=d2;
-    d2->onceki=d1;
-    d2->sonraki=d3;
-    d3->onceki=d2;
-}
+    IkiYonluBagliListe liste;
+
+    liste.ekle();
+
+
+
+   
+};
